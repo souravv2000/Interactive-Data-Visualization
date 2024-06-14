@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Data Visualization</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js">
+    </script>
+</head>
+
+<body>
+    <canvas id="barChart" width="700" height="250">
+    </canvas>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let ctx =
+                document.getElementById('barChart').getContext('2d');
+            let data = {
+                labels: ['Africa', 'Asia',
+                    'Europe', 'Latin America', 'North America', 'Oceania', 'World'],
+                datasets: [{
+                    label: 'Predicted World Population(Millions) in 2050',
+                    data: [2465755, 5290145, 704172, 748715, 421001, 57653, 9687440],
+                    backgroundColor: [
+                        'red',
+                        'blue',
+                        'yellow',
+                        'green',
+                        'purple',
+                        'orange',
+                        'pink'
+                    ]
+                }]
+            };
+            let config = {
+                type: 'bar',
+                data: data,
+                options: {
+                    animation: {
+                        easing: 'easeOutCubic',
+                        loop: true,
+                        duration: 6000
+                    }
+                }
+            };
+            let myChart = new Chart(ctx, config);
+        });
+    </script>
+</body>
+
+</html>
